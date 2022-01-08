@@ -1,0 +1,49 @@
+body{
+    font-family: 'SF Pro Display', sans-serif;
+}
+conteiner{
+    width: 1080px;
+}
+p{
+   color: #58b3a2;
+   font-size: 30px;
+   font-weight: 600;
+}
+header{
+    height: 10vh;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn-cart{
+    background-color: #58b3a2;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    color: white;
+    border-radius: 5px;
+    margin-left: 100px;
+}
+main{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}   
+.product-item{
+    border: 1px solid black;
+    height: 200px;
+    width: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+    overflow: hidden;
+    margin: 20px 0;
+}
+.by-btn{
+    width: 100px;
+    height: 20px;
+    margin-top: 10px;
+}
