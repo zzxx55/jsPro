@@ -1,24 +1,44 @@
-const products = [
-  { id: 1, title: 'Notebook', price: 1000 },
-  { id: 2, title: 'Mouse', price: 100 },
-  { id: 3, title: 'Keyboard', price: 250 },
-  { id: 4, title: 'Gamepad', price: 150 },
-];
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
-const renderProduct = (title, price, img = '') => {
-  return `<div class="product-item">
-                <h3>${title}</h3>
-                <p>${price}</p>
-                <button class="by-btn">Добавить</button>
-              </div>`;
-};
+const app = new Vue({
+  el: '#app',
+  data: {
+    catalogUrl: '/catalogData.json',
+    products: [],
+    imgCatalog: 'https://via.placeholder.com/200x150',
+    searchLine: '',
+    isVisibleCart: true
+  },
+  methods: {
+    getJson(url) {
+      return fetch(url)
+        .then(result => result.json())
+        .catch(error => {
+          console.log(error);
+        })
+    },
+    addProduct(product) {
+      console.log(product.id_product);
+    },
+    FilterGoods() {
 
-const renderCatalog = (list) => {
 
-  const productBlock = document.querySelector('.products')
-  list.forEach(good => {
-    productBlock.insertAdjacentHTML('beforebegin', renderProduct(good.title, good.price));
-  });
-};
+    }
+  },
+  beforeCreate() { },
+  created() {
+    this.getJson(`${API + this.catalogUrl}`)
+      .then(data => {
+        for (let el of data) {
+          this.products.push(el);
+        }
+      });
+  },
 
-renderCatalog(products);
+  beforeMount() { },
+  mounted() { },
+  beforeUpdate() { },
+  updated() { },
+  beforeDestroy() { },
+  destroyed() { },
+});
